@@ -10,7 +10,7 @@ import com.frozen.rpcserverapi.vo.req.SendMsgReqVO;
  * Date: 2020-04-25 14:23
  * @since JDK 1.8
  */
-public interface ServerApi {
+public interface ISendMsgServerApi {
 
     /**
      * Push msg to client
