@@ -1,7 +1,9 @@
 package com.frozen.rpcserverapi;
 
 
+import com.frozen.rpccommon.res.BaseResponse;
 import com.frozen.rpcserverapi.vo.req.SendMsgReqVO;
+import com.frozen.rpcserverapi.vo.res.SendMsgResVO;
 
 /**
  * Function:

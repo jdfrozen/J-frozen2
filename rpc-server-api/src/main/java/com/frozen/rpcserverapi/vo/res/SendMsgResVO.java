@@ -1,5 +1,6 @@
 package com.frozen.rpcserverapi.vo.res;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
 
@@ -12,6 +13,7 @@ import lombok.ToString;
  */
 @Data
 @ToString
+@AllArgsConstructor
 public class SendMsgResVO {
     private String msg ;
 }

@@ -16,6 +16,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public class SendMsgReqVO extends BaseRequest {
-    private String msg ;
     private Long userId ;
+	private String msg ;
 }

@@ -55,8 +55,16 @@ public class BaseResponse<T> implements Serializable{
 		return new BaseResponse<T>(StatusEnum.SUCCESS.getCode(), StringUtil.isNullOrEmpty(message) ? StatusEnum.SUCCESS.getMessage() : message, t);
 	}
 
+	public static <T> BaseResponse<T> createSuccess(T t){
+		return new BaseResponse<T>(StatusEnum.SUCCESS.getCode(),StatusEnum.SUCCESS.getMessage() , t);
+	}
+
 	public static <T> BaseResponse<T> createFail(T t, String message){
 		return new BaseResponse<T>(StatusEnum.FAIL.getCode(), StringUtil.isNullOrEmpty(message) ? StatusEnum.FAIL.getMessage() : message, t);
+	}
+
+	public static <T> BaseResponse<T> createFail(){
+		return new BaseResponse<T>(StatusEnum.FAIL.getCode(),StatusEnum.FAIL.getMessage(), null);
 	}
 
 	public static <T> BaseResponse<T> create(T t, StatusEnum statusEnum, String message){

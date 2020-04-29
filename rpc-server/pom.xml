@@ -44,6 +44,18 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>com.frozen</groupId>
+            <artifactId>rpc-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.frozen</groupId>
+            <artifactId>rpc-server-api</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>
