@@ -20,5 +20,5 @@ public interface ISendMsgServerApi {
      * @return
      * @throws Exception
      */
-    Object sendMsg(SendMsgReqVO sendMsgReqVO) throws Exception;
+    BaseResponse<SendMsgResVO> sendMsg(SendMsgReqVO sendMsgReqVO) throws Exception;
 }

@@ -27,9 +27,7 @@ public class ClientApiService {
 		try {
 			ISendMsgServerApi sendMsgServerApi = new ProxyManager<>(ISendMsgServerApi.class, "http://localhost:8080", okHttpClient).getInstance();
 			SendMsgReqVO sendMsgReqVO = new SendMsgReqVO(1L,msg);
-			Response response = (Response) sendMsgServerApi.sendMsg(sendMsgReqVO );
-			String json = response.body().string() ;
-			return JSON.parseObject(json, BaseResponse.class);
+			return sendMsgServerApi.sendMsg(sendMsgReqVO );
 		}catch (Exception e){
 			return BaseResponse.createFail();
 		}

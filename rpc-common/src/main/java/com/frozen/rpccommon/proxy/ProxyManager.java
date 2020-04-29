@@ -1,10 +1,13 @@
 package com.frozen.rpccommon.proxy;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.frozen.rpccommon.enums.StatusEnum;
 import com.frozen.rpccommon.exception.CIMException;
+import com.frozen.rpccommon.res.BaseResponse;
 import com.frozen.rpccommon.util.HttpClient;
 import okhttp3.OkHttpClient;
+import okhttp3.Response;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
@@ -68,7 +71,9 @@ public final class ProxyManager<T> {
                     jsonObject.put(field.getName(), field.get(para));
                 }
             }
-            return HttpClient.call(okHttpClient, jsonObject.toString(), serverUrl);
+	        Response response = HttpClient.call(okHttpClient, jsonObject.toString(), serverUrl);
+	        String json = response.body().string() ;
+	        return JSON.parseObject(json, BaseResponse.class);
         }
     }
 }
