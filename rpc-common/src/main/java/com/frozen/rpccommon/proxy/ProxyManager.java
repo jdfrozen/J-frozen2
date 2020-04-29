@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.frozen.rpccommon.enums.StatusEnum;
 import com.frozen.rpccommon.exception.CIMException;
 import com.frozen.rpccommon.util.HttpClient;
-import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
 
 import java.lang.reflect.Field;
@@ -20,7 +19,6 @@ import java.lang.reflect.Proxy;
  * Date: 2020-04-25 00:18
  * @since JDK 1.8
  */
-@Slf4j
 public final class ProxyManager<T> {
 
 
