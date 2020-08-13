@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>折线图</title>
+    <script src="js/echarts.min.js"></script>
+    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+<!--为echarts准备一个容器，画图就画在里面-->
+<div id="box" style="width: 1600px;height: 800px;"></div>
+<script>
+    //初始化ehcharts实例
+    var myChart=echarts.init(document.getElementById("box"));
+
+    axios.get('/getLimitChartData')
+        .then(function (response) {
+            var jsonStr = JSON.stringify(response.data);
+            //指定图表的配置项和数据
+            var option=JSON.parse(jsonStr);
+            myChart.setOption(option);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    //使用刚刚指定的配置项和数据项显示图表
+
+</script>
+</body>
+</html>
