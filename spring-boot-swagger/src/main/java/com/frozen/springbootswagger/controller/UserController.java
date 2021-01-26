@@ -1,7 +1,5 @@
 package com.frozen.springbootswagger.controller;
 
-import com.battcn.boot.swagger.model.DataType;
-import com.battcn.boot.swagger.model.ParamType;
 import com.frozen.springbootswagger.vo.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -25,7 +23,7 @@ public class UserController {
 	@ApiOperation(value = "条件查询（DONE）")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "username", value = "用户名"),
-			@ApiImplicitParam(name = "password", value = "密码", dataType = DataType.STRING, paramType = ParamType.QUERY), })
+			@ApiImplicitParam(name = "password", value = "密码", dataType = "String", required = true), })
 	public User query(String username, String password) {
 		log.info("多个参数用  @ApiImplicitParams");
 		return new User(1L, username, password);
@@ -34,7 +32,7 @@ public class UserController {
 	@GetMapping("/{id}")
 	@ApiOperation(value = "主键查询（DONE）")
 	@ApiImplicitParams({
-			@ApiImplicitParam(name = "id", value = "用户编号", dataType = DataType.LONG, paramType = ParamType.PATH), })
+			@ApiImplicitParam(name = "id", value = "用户编号", dataType = "Long", required = true), })
 	public User get(@PathVariable Long id) {
 		log.info("单个参数用  @ApiImplicitParam");
 		return new User(id, "u1", "p1");
@@ -42,7 +40,7 @@ public class UserController {
 
 	@DeleteMapping("/{id}")
 	@ApiOperation(value = "删除用户（DONE）")
-	@ApiImplicitParam(name = "id", value = "用户编号", dataType = DataType.LONG, paramType = ParamType.PATH)
+	@ApiImplicitParam(name = "id", value = "用户编号", dataType = "Long", required = true)
 	public void delete(@PathVariable Long id) {
 		log.info("单个参数用 ApiImplicitParam");
 	}
